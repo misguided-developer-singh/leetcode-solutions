@@ -24,6 +24,6 @@ public class MaximumSumSubarrayOfLengthK {
     public static void main(String[] args) {
         int[] nums = {2, -1, 5, -2, 3, 2};
         int k = 3;
-        System.out.println(maxSumSubarray(nums, 3));
+        System.out.println(maxSumSubarray(nums, k));
     }
 }
