@@ -43,11 +43,6 @@ public class mergeTwoLists {
     }
 }
 
-
-
-
-
-
 class ListNode {
     int val;
     ListNode next;
