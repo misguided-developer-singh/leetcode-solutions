@@ -1,5 +1,7 @@
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /*
 Given an array of integers and an integer k,
@@ -22,10 +24,30 @@ public class ContainsDuplicateII {
         return false;
     }
 
+    // Sliding Window Approach
+    public static boolean containsNearbyDuplicateV2(int[] nums, int k) {
+        Set<Integer> window = new HashSet<>();
+        int left = 0;
+
+        for(int num : nums) {
+            if(window.size() > k) {
+                window.remove(nums[left]);
+                left++;
+            }
+            if(window.contains(num)) {
+                return true;
+            }
+            window.add(num);
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         int[] nums1 = { 1,2,3,1 };
         int[] nums2 = { 1,2,3,1,2,3 };
         System.out.println(containsNearbyDuplicate(nums1, 3)); // true
         System.out.println(containsNearbyDuplicate(nums2, 2)); // false
+        System.out.println(containsNearbyDuplicateV2(nums1, 3)); // true
+        System.out.println(containsNearbyDuplicateV2(nums2, 2)); // false
     }
 }
